@@ -1,5 +1,5 @@
 # Django settings for timesheet project.
-import os, getpass
+import os
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -14,7 +14,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '%s/assets/data/sqlite.db' % getpass.getuser(), # Database name or path to database file if using sqlite3.
+        'NAME': '%s/assets/data/sqlite.db' % os.path.abspath(os.path.expanduser('~/')), # Database name or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -47,7 +47,7 @@ USE_L10N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '%s/assets/templates/media/' % os.path.abspath(os.expanduser('~/'))
+MEDIA_ROOT = '%s/assets/templates/media/' % os.path.abspath(os.path.expanduser('~/'))
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
@@ -111,10 +111,10 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
-    # 'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'django.contrib.admin',
+    'django.contrib.admindocs',
+    'django_extensions',
+    'timesheet.timer',
 )
 
 # A sample logging configuration. The only tangible logging
