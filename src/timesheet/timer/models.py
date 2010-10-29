@@ -28,7 +28,7 @@ class Activity(models.Model):
     started = models.DateTimeField()
     finished = models.DateTimeField(null=True, blank=True)
 
-    delegated_user = models.ForeignKey(User, null=True, blank=True)
+    delegate = models.ForeignKey(User, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
 
     activity = models.PositiveIntegerField(
