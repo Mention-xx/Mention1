@@ -39,7 +39,7 @@ class Activity(models.Model):
 
     description = models.TextField(null=True, blank=True)
 
-    def get_time_taken(self):
+    def time_taken(self):
         """ Get the amount of time that this project has taken. """
 
         return self.finished - self.started
