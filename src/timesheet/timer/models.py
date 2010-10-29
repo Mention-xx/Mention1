@@ -22,6 +22,9 @@ ACTIVITY_CHOICES = (
 class Activity(models.Model):
     """ A piece of work that has been done within a specific amount of time. """
 
+    class Meta(object):
+        verbose_name_plural = 'activities'
+
     started = models.DateTimeField()
     finished = models.DateTimeField(null=True, blank=True)
 
