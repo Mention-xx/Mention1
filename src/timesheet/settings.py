@@ -67,6 +67,9 @@ STATICFILES_URL = '/media/'
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
+# Where should users be redirected to after login?
+LOGIN_REDIRECT_URL = '/'
+
 # A list of locations of additional static files
 STATICFILES_DIRS = ()
 
