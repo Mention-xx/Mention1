@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import deltatime
 
 ### TODO: Apply i18n translations to this text
 ACTIVITY_CHOICES = (
@@ -37,6 +38,11 @@ class Activity(models.Model):
     )
 
     description = models.TextField(null=True, blank=True)
+
+    def get_time_taken(self):
+        """ Get the amount of time that this project has taken. """
+
+        return self.finished - self.started
 
     def __unicode__(self):
         """ Get a textual representation of this activity. """
