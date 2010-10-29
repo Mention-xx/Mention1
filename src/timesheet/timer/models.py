@@ -29,7 +29,6 @@ class Activity(models.Model):
     finished = models.DateTimeField(null=True, blank=True)
 
     delegate = models.ForeignKey(User, null=True, blank=True)
-    description = models.TextField(null=True, blank=True)
 
     activity = models.PositiveIntegerField(
         choices=ACTIVITY_CHOICES,
@@ -37,7 +36,15 @@ class Activity(models.Model):
         blank=True
     )
 
+    description = models.TextField(null=True, blank=True)
+
     def __unicode__(self):
-        """ Get a textual representation of what occured. """
-        return '%s, %s' % (self.activity, self.delegated_user.get_full_name)
+        """ Get a textual representation of this activity. """
+
+        return '%s, %s "%s" %s' % (
+            self.get_activity_display(),
+            self.delegate.first_name,
+            self.delegate.username,
+            self.delegate.last_name
+        )
 
