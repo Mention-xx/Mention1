@@ -1,0 +1,11 @@
+{% extends "registration/base.html" %}
+
+{% block title %}logged out{% endblock title %}
+
+{% block content %}
+	<p>
+		You have successfully logged out. When you come back, you'll need to
+		<a href="{% url django.contrib.auth.views.login %}">log in</a> again.
+	</p>
+{% endblock content %}
+
