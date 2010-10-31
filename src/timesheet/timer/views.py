@@ -32,6 +32,13 @@ def activity_timer(request, *args, **kwargs):
 
         return HttpResponseRedirect('/')
 
+    try:
+        this_activity = Activity.objects.get(delegate=request.user, finished_original=None)
+        clock_in = False
+
+    except Activity.DoesNotExist:
+        clock_in = True
+
     template_data = {
         'current_time': current_time.strftime('%A, %B ') + ordinal(current_time.strftime('%d')) + current_time.strftime(' %I:%M:%S %p'),
         'todays_activities': Activity.objects.today().filter(delegate = request.user),
