@@ -1,5 +1,14 @@
 {% extends "timer/base.html" %}
 
 {% block content %}
+	<div id="timer-container">
+		<div id="timer">{{ current_time }}</div>
+		<div>
+			<form action="{% url timesheet.timer.views.activity_timer %}" method="POST">
+				{% csrf_token %}
+				<input id="timer-submit" name="timer_submit" type="submit" value="Update Clock">
+			</form>
+		</div>
+	</div>
 {% endblock content %}
 
