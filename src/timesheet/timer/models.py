@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import managers
 import datetime
 
 ### TODO: Apply i18n translations to this text
@@ -80,4 +81,6 @@ class Activity(models.Model):
             self.delegate.username,
             self.delegate.last_name
         )
+
+    objects = managers.ActivityManager()
 
