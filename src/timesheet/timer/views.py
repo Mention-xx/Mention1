@@ -14,6 +14,7 @@ def activity_timer(request, *args, **kwargs):
 
     template_data = {
         'current_time': current_time.strftime('%A, %B ') + ordinal(current_time.strftime('%d')) + current_time.strftime(' %I:%M:%S %p'),
+        'todays_activities': Activity.objects.today().filter(delegate = request.user)
     }
 
     if request.method == 'POST':
