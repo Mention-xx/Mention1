@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 
-{% block header_title %}Mention, LLC{% endblock header_title %}
+{% block styles %}
+	{{ block.super }}
+	<link rel="stylesheet" type="text/css" href="{{ STATICFILES_URL }}themes/mention/styles/reset.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATICFILES_URL }}themes/mention/styles/style.css">
+{% endblock styles %}
+
+{% block scripts %}
+	<script src="{{ STATICFILES_URL }}js/timer.js"></script>
+{% endblock scripts %}
+
+{% block header_title %}{% block title %}{% endblock title %} Mention, LLC{% endblock header_title %}
 
 {% block body %}
 
