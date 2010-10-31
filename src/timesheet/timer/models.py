@@ -6,17 +6,21 @@ import datetime
 ACTIVITY_CHOICES = (
     (1001, 'Project Management'),
     (1002, 'Project Management - Documentation'),
+
     (2001, 'Consulting'),
     (2002, 'Consulting - Research'),
     (2003, 'Consulting - Analysis'),
     (2004, 'Consulting - Implementation'),
+
     (3001, 'Development'),
     (3002, 'Development - Coding'),
     (3003, 'Development - Testing'),
     (3004, 'Development - Design'),
+
     (4001, 'Implementation'),
     (4002, 'Implementation - Training'),
     (4003, 'Implementation - Testing'),
+
     (9000, 'Additional Cost'),
 )
 
