@@ -10,6 +10,6 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^timesheet/', include('timesheet.timer.urls')),
 
-    (r'^$', 'timesheet-activity-list'),
+    (r'^$', 'timesheet.timer.views.activity_list'),
 )
 
