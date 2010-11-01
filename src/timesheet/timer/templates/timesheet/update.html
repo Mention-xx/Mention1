@@ -1,0 +1,15 @@
+{% extends "base_site.html" %}
+
+{% block content %}
+	<form action="" method="POST">
+		{% csrf_token %}
+		{{ form.as_ul }}
+
+		<input type="submit" value="Create" />
+	</form>
+
+	{% if perms.timer.delete_activity %}
+	<span id="delete-activity"><a href="{% url timesheet-delete-activity object.pk %}">delete this activity</a></span>
+	{% endif %}
+{% endblock content %}
+

@@ -53,7 +53,8 @@ class Activity(models.Model):
 
     @property
     def started(self):
-        return round_minutes_to_nearest_fifteen(self.started_original)
+        if self.started_original is not None:
+            return self.started_original
 
     @started.setter
     def started(self, value):
@@ -61,7 +62,8 @@ class Activity(models.Model):
 
     @property
     def finished(self):
-        return round_minutes_to_nearest_fifteen(self.finished_original)
+        if self.finished_original is not None:
+            return round_minutes_to_nearest_fifteen(self.finished_original)
 
     @finished.setter
     def finished(self, value):
@@ -75,12 +77,18 @@ class Activity(models.Model):
     def __unicode__(self):
         """ Get a textual representation of this activity. """
 
-        return '%s, %s "%s" %s' % (
+        output = '%s' % (
             self.get_activity_display(),
-            self.delegate.first_name,
-            self.delegate.username,
-            self.delegate.last_name
         )
+
+        if self.delegate is not None:
+            output += ', %s "%s" %s' % (
+                self.delegate.first_name,
+                self.delegate.username,
+                self.delegate.last_name
+            )
+
+        return output
 
     objects = managers.ActivityManager()
 
