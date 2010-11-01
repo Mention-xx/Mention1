@@ -30,6 +30,9 @@ def activity_list(request, *args, **kwargs):
 
 @login_required(login_url='/account/login/')
 def create_activity(request, *args, **kwargs):
+    if request.user.has_perm('timer.add_activity') is not True:
+        raise Http404()
+
     if request.method == 'POST':
         form = ActivityForm(request.POST)
 
@@ -52,6 +55,9 @@ def create_activity(request, *args, **kwargs):
 
 @login_required(login_url='/account/login/')
 def update_activity(request, *args, **kwargs):
+    if request.user.has_perm('timer.change_activity') is not True:
+        raise Http404()
+
     if 'template_name' not in kwargs:
         kwargs['template_name'] = 'timesheet/update.html'
 
@@ -65,6 +71,9 @@ def update_activity(request, *args, **kwargs):
 
 @login_required(login_url='/account/login/')
 def delete_activity(request, *args, **kwargs):
+    if request.user.has_perm('timer.delete_activity') is not True:
+        raise Http404()
+
     if 'template_name' not in kwargs:
         kwargs['template_name'] = 'timesheet/delete.html'
 
