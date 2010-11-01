@@ -49,7 +49,8 @@ class Activity(models.Model):
         blank=True
     )
 
-    description = models.TextField(null=True, blank=True)
+    description = models.TextField("What was done?", null=True, blank=True)
+    action_points = models.TextField("What needs to be done?", null=True, blank=True)
 
     @property
     def started(self):
