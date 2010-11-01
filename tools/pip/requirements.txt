@@ -1,0 +1,3 @@
+werkzeug
+svn+http://code.djangoproject.com/svn/django/trunk/
+git+http://github.com/django-extensions/django-extensions.git
