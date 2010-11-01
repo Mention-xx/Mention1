@@ -1,0 +1,10 @@
+*.pyc
+.*
+bin/*
+distribute-0.6.10.tar.gz
+include/*
+lib/*
+tools/ubuntu/*
+assets/media/css/*
+assets/media/js/*
+assets/media/admin/*
