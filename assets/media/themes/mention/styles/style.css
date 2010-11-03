@@ -170,3 +170,13 @@ html.scripted ul li:hover ul { display: block; }
 	text-decoration: none;
 }
 
+td
+{
+	padding: 2px 10px;
+}
+
+tbody td
+{
+	border-left: 1px dashed #CF7A06;
+}
+
