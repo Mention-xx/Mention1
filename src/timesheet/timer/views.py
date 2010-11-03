@@ -41,7 +41,9 @@ def create_activity(request, *args, **kwargs):
         if form.is_valid():
             form.save()
 
-        return HttpResponseRedirect(reverse('timesheet-activity-create'))
+            return HttpResponseRedirect(reverse('timesheet-activity-list'))
+        else:
+            form = ActivityForm(request.POST)
     else:
         form = ActivityForm()
 
