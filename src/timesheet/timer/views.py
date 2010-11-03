@@ -41,7 +41,7 @@ def create_activity(request, *args, **kwargs):
         if form.is_valid():
             form.save()
 
-        return HttpResponseRedirect(reverse('timesheet-activity'))
+        return HttpResponseRedirect(reverse('timesheet-activity-create'))
     else:
         form = ActivityForm()
 
@@ -65,7 +65,7 @@ def update_activity(request, *args, **kwargs):
         kwargs['form_class'] = ActivityForm
 
     if 'post_save_redirect' not in kwargs:
-        kwargs['post_save_redirect'] = reverse('timesheet-activity')
+        kwargs['post_save_redirect'] = reverse('timesheet-activity-update')
 
     return update_object(request, *args, **kwargs)
 
@@ -78,7 +78,7 @@ def delete_activity(request, *args, **kwargs):
         kwargs['template_name'] = 'timesheet/delete.html'
 
     if 'post_delete_redirect' not in kwargs:
-        kwargs['post_delete_redirect'] = reverse('timesheet-activity')
+        kwargs['post_delete_redirect'] = reverse('timesheet-activity-delete')
 
     if 'model' not in kwargs:
         kwargs['model'] = Activity
