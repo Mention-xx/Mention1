@@ -55,6 +55,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.i18n',
     'django.contrib.staticfiles.context_processors.staticfiles',
     'django.contrib.messages.context_processors.messages',
+    'themes.context_processors.current',
+    'themes.context_processors.list',
 )
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -73,7 +75,7 @@ STATICFILES_URL = '/media/'
 # URL prefix for admin media -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_MEDIA_PREFIX = '/media/'
 
 # Where should users be redirected to after login?
 LOGIN_REDIRECT_URL = '/'
@@ -121,8 +123,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'django.contrib.admindocs',
     'django_extensions',
+    'navigation',
+    'themes',
     'timesheet.timer',
 )
 
