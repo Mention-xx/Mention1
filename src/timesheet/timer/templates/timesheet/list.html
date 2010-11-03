@@ -2,6 +2,7 @@
 
 {% block content %}
 	{% if todays_activities|length > 0 %}
+
 	<div id="recent-activities">
 	<table>
 		<thead>
@@ -16,7 +17,7 @@
 
 		<tbody>
 
-	{% for activity in todays_activities %}
+		{% for activity in todays_activities %}
 		<tr>
 			<td>{{ activity.started }}</td>
 			<td>{{ activity.finished }}</td>
@@ -24,11 +25,16 @@
 			<td>{{ activity.delegate.get_full_name }}</td>
 			<td><a href="{% url timesheet-update-activity activity.pk %}">edit</a></td>
 		</tr>
-	{% endfor %}
+		{% endfor %}
 
 		</tbody>
 	</table>
 	</div>
+
+	{% else %}
+
+	<div>You currently haven't created any activities today. Create a <a href="{% url timesheet-activity-create %}">new activity</a>.</div>
+
 	{% endif %}
 {% endblock content %}
 
