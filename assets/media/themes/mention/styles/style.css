@@ -180,3 +180,9 @@ tbody td
 	border-left: 1px dashed #CF7A06;
 }
 
+label
+{
+	margin-top: 0.8em;
+	display: block;
+}
+
