@@ -1,7 +1,7 @@
 {% extends "base_site.html" %}
 
 {% block content %}
-	<div id="create-activity">
+	<div id="timesheet-activity-create">
 		<form action="" method="POST">
 			{% csrf_token %}
 			{{ form.as_ul }}
