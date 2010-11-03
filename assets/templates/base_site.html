@@ -2,25 +2,27 @@
 
 {% block styles %}
 	{{ block.super }}
-	<link rel="stylesheet" type="text/css" href="{{ STATICFILES_URL }}themes/mention/styles/reset.css">
-	<link rel="stylesheet" type="text/css" href="{{ STATICFILES_URL }}themes/mention/styles/style.css">
+	{% for theme in theme_list %}
+		<link title="{{ theme.name }}" href="{{ STATICFILES_URL }}{{ theme.styles_url }}/style.css" media="screen" rel="{% if theme != current_theme %}alternate {% endif %}stylesheet" type="text/css" />
+	{% endfor %}
 {% endblock styles %}
 
 {% block scripts %}
-	<script src="{{ STATICFILES_URL }}js/timer.js"></script>
+	{{ block.super }}
+	<script language="javascript"
+	        type="text/javascript"
+	        src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+	</script>
+	<script language="javascript"
+	        type="text/javascript"
+	        src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.4/jquery-ui.min.js">
+	</script>
 {% endblock scripts %}
 
-{% block header_title %}{% block title %}{% endblock title %} Mention, LLC{% endblock header_title %}
+{% block title %}Mention, LLC{% endblock title %}
+{% block site_name %}<a href="/">Mention, LLC</a>{% endblock site_name %}
 
-{% block body %}
-
-<div id="page-wrapper">
-	<div id="content-wrapper">
-		<div id="content">
-			{% block content %}{% endblock content %}
-		</div>
-	</div>
-</div>
-
-{% endblock body %}
+{% block footer_text %}
+	Copyright&copy; 2010, Mention, LLC. <em>All rights reserved.</em>
+{% endblock footer_text %}
 

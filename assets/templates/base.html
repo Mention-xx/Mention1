@@ -1,19 +1,56 @@
 <!DOCTYPE html>
-
+{% load nav %}
 <html>
 	<head>
-		<meta charset="UTF-8">
-		<title>{% block header_title %}{% endblock header_title %}</title>
+	{% block headers %}
+		<title>{% block title %}{% endblock title %}</title>
 
-		{% block headers %}
-			{% block meta %}{% endblock meta %}
-			{% block styles %}{% endblock styles %}
-			{% block scripts %}{% endblock scripts %}
-		{% endblock headers %}
+	{% block meta %}
+		<meta charset=UTF-8>
+	{% endblock meta %}
+
+	{% block styles %}
+	{% endblock styles %}
+
+	{% block scripts %}
+	{% endblock scripts %}
+	{% endblock headers %}
 	</head>
 
 	<body>
-		{% block body %}{% endblock body %}
+		<div id="page-wrapper">
+			<div id="header">
+				<h1 id="site-name">{% block site_name %}{% endblock site_name %}</h1>
+			</div>
+
+			<div id="navigation-wrapper">
+				<div id="account-navigation">
+					{% block account_navigation %}{% navtree "account" user %}{% endblock account_navigation %}
+				</div>
+
+				<div id="primary-navigation">
+					{% block primary_navigation %}{% navtree "primary" user %}{% endblock primary_navigation %}
+				</div>
+			</div>
+
+			<div id="content-wrapper">
+				<div id="content">
+					{% block content %}{% endblock content %}
+				</div>
+			</div>
+
+			<div id="footer-push"></div>
+		</div>
+
+		<div id="footer">
+			<div id="footer-navigation">
+				{% navtree "footer" user %}
+			</div>
+
+			<div id="footer-legal">
+				{% block footer_text %}{% endblock footer_text %}
+			</div>
+		</div>
 	</body>
 </html>
 
