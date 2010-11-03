@@ -1,6 +1,6 @@
 werkzeug
 svn+http://code.djangoproject.com/svn/django/trunk/
-git+http://github.com/monokrome/django-navigation.git
 git+http://github.com/django-extensions/django-extensions.git
-git+http://github.com/django-extensions/django-themes.git
+git+http://github.com/monokrome/django-navigation.git
+git+http://github.com/monokrome/django-themes.git
 
