@@ -11,6 +11,8 @@ body
 	background-color: #AD937A;
 }
 
+h1 { font-size: 1.2em; font-weight: bold; }
+
 strong { font-weight: bold; }
 em { font-style: italic; }
 
