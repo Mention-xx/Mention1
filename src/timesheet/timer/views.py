@@ -70,7 +70,7 @@ def update_activity(request, *args, **kwargs):
         kwargs['form_class'] = ActivityForm
 
     if 'post_save_redirect' not in kwargs:
-        kwargs['post_save_redirect'] = reverse('timesheet-activity-update')
+        kwargs['post_save_redirect'] = reverse('timesheet-activity-list')
 
     return update_object(request, *args, **kwargs)
 
