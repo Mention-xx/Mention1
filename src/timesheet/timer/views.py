@@ -83,7 +83,7 @@ def delete_activity(request, *args, **kwargs):
         kwargs['template_name'] = 'timesheet/delete.html'
 
     if 'post_delete_redirect' not in kwargs:
-        kwargs['post_delete_redirect'] = reverse('timesheet-activity-delete')
+        kwargs['post_delete_redirect'] = reverse('timesheet-activity-list')
 
     if 'model' not in kwargs:
         kwargs['model'] = Activity
