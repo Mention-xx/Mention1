@@ -26,6 +26,9 @@ def activity_list(request, *args, **kwargs):
     if 'queryset' not in kwargs:
         kwargs['queryset'] = Activity.objects.today().filter(delegate=request.user)
 
+    if 'template_object_name' not in kwargs:
+        kwargs['template_object_name'] = 'activity'
+
     return object_list(request, *args, **kwargs)
 
 @login_required(login_url='/account/login/')

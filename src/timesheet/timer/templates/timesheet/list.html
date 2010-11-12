@@ -1,28 +1,28 @@
 {% extends "base_site.html" %}
 
 {% block content %}
-	{% if todays_activities|length > 0 %}
+	{% if activity_list|length > 0 %}
 
 	<div id="recent-activities">
+	<h1>Today's Activities</h1>
+
 	<table>
 		<thead>
 		<tr>
 			<td>Started</td>
 			<td>Finished</td>
 			<td>Type</td>
-			<td>Delegate</td>
 			<td><a href="{% url timesheet-activity-create %}">New Activity</a></td>
 		</tr>
 		</thead>
 
 		<tbody>
 
-		{% for activity in todays_activities %}
+		{% for activity in activity_list %}
 		<tr>
 			<td>{{ activity.started }}</td>
 			<td>{{ activity.finished }}</td>
 			<td>{{ activity.get_activity_display }}</td>
-			<td>{{ activity.delegate.get_full_name }}</td>
 			<td><a href="{% url timesheet-update-activity activity.pk %}">edit</a></td>
 		</tr>
 		{% endfor %}
